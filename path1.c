@@ -21,6 +21,5 @@ char *tester_chemin(char **chemin, char *entree)
 		free(entree_user);
 		i++;
 	}
-	
 	return (NULL);
 }

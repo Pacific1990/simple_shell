@@ -15,8 +15,9 @@ void exec_cmd(char **cmd)
 {
 	pid_t pid = 0;
 	int status = 0;
+
 	pid = fork();
-	
+
 	if (pid == -1)
 		perror("fork");
 	else if (pid > 0)

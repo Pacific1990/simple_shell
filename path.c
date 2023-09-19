@@ -22,9 +22,7 @@ char *chemin_found(void)
 			}
 			return (chemin);
 		}
-		
 		envment++;
 	}
-	
 	return (NULL);
 }

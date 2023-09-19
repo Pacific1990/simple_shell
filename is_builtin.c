@@ -11,14 +11,13 @@
 bool is_built_in(char *cmd)
 {
 	int i;
-	const char*built_in[] = {"pwd", "cd", NULL};
+	const char *built_in[] = {"pwd", "cd", NULL};
 
 	for (i = 0; built_in[i]; i++)
 	{
 		if (!strcmp(built_in[i], cmd))
 		return (true);
 	}
-	
 	return (false);
 }
 

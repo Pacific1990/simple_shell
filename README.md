@@ -1,4 +1,4 @@
-This is team project between Alexandra Bénédicte MOUSSA VEKETO and Eko ABET
+This is team project between Danielle BADOBREO and Eko ABET
 
 0. Betty would be proud
 1. Simple shell 0.1

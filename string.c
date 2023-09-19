@@ -67,7 +67,7 @@ char *str_duplicate(char *s)
 {
 	char *ptr;
 	int i, len;
-	
+
 	if (s == NULL)
 		return (NULL);
 	len = strlenght(s);

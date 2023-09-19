@@ -39,9 +39,7 @@ void get_absolute_path(char **cmd)
 			free(bin);
 			bin = NULL;
 		}
-		
 		free_array(path_split);
-
 		free(cmd[0]);
 		cmd[0] = bin;
 	}

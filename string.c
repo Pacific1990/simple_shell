@@ -10,12 +10,9 @@
 int strcomp(char *str_1, char *str_2)
 {
 	int i = 0, output;
-
 	while (*(str_1 + i) == *(str_2 + i) && *(str_1 + i) != '\0')
-		i++;
-
+	i++;
 	output = (*(str_1 + i) -*(str_2 + i));
-
 	return (output);
 }
 
@@ -29,13 +26,11 @@ int strcomp(char *str_1, char *str_2)
 int strlenght(char *s)
 {
 	int count = 0;
-
 	while (*s != '\0')
 	{
 		count++;
 		s++;
 	}
-	
 	return (count);
 }
 
@@ -51,13 +46,11 @@ int strlenght(char *s)
 int str_n_cmp(char *str_1, char *str_2, int n)
 {
 	int i;
-
 	for (i = 0; str_1[i] && str_2[i] && i < n; i++)
 	{
 		if (str_1[i] != str_2[i])
 			return (str_1[i] - str_2[i]);
 	}
-	
 	return (0);
 }
 
@@ -71,20 +64,14 @@ char *str_duplicate(char *s)
 {
 	char *ptr;
 	int i, len;
-
 	if (s == NULL)
 		return (NULL);
-
 	len = strlenght(s);
-
 	ptr = malloc(sizeof(char) * (len + 1));
-	
 	if (!ptr)
 		return (NULL);
-
 	for (i = 0; *s != '\0'; s++, i++)
 		ptr[i] = s[0];
-
 	ptr[i++] = '\0';
 	return (ptr);
 }
@@ -104,9 +91,7 @@ char *str_locate(char *s, char c)
 			return (s);
 		s++;
 	}
-	
 	if (!c)
 		return (s);
-	
 	return (NULL);
 }

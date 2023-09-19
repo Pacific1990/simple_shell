@@ -1,9 +1,9 @@
 #include "shell.h"
 
 /**
- * built_in_c - fuction
+ * built_in_cd - function
  *
- * path: argument path
+ * @path: argument path
  * Return: void
  */
 

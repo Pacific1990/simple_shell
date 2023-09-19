@@ -28,5 +28,3 @@ char *chemin_found(void)
 	
 	return (NULL);
 }
-
-<

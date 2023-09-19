@@ -22,6 +22,5 @@ int traitrement(char **ma_commande, char *entree)
 		sortie(ma_commande, entree);
 		return (1);
 	}
-	
 	return (0);
 }

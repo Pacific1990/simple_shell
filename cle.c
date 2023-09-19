@@ -30,10 +30,8 @@ char **tokenize(char *line)
 			flag = 0;
 		bufp++;
 	}
-	
 	tokens = malloc(sizeof(char *) * (token_size + 1));
 	token = strtok(buf, delim);
-	
 	while (token)
 	{
 		tokens[index] = str_duplicate(token);
@@ -45,9 +43,7 @@ char **tokenize(char *line)
 		token = strtok(NULL, delim);
 		index++;
 	}
-	
 	tokens[index] = '\0';
 	free(buf);
 	return (tokens);
 }
-

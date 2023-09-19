@@ -5,25 +5,22 @@
 
 /**
  * command - function
- * 
  * Return: integer
- *
  */
 
-int command()
+int command(void)
 {
 	char *buffer = NULL;
 	size_t buf_size = 2048;
 	char **cmd = NULL;
 
 	buffer = (char *)calloc(sizeof(char), buf_size);
-	if (buffer == NULL) {
+	if (buffer == NULL)
+	{
 		perror("Malloc failure");
 		return (EXIT_FAILURE);
 	}
-
 	write(1, "$> ", 3);
-	
 	while (getline(&buffer, &buf_size, stdin) > 0)
 	{
 		cmd = split(buffer, " \n\t");
@@ -36,10 +33,9 @@ int command()
 		}
 		else
 			exec_built_in(cmd);
-			write(1, "$> ", 3);
-			free_array(cmd);
+		write(1, "$> ", 3);
+		free_array(cmd);
 	}
-	
 	printf("Bye \n");
 	free(buffer);
 	return (0);

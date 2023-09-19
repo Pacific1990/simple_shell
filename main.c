@@ -31,7 +31,7 @@ int main(int ac, char **av, char *envp[])
 		info.ln_count++;
 		if (line[linesize - 1] == '\n')
 			line[linesize - 1] = '\0';
-			command = tokenize(line);
+		command = tokenize(line);
 		if (command == NULL || *command == NULL || **command == '\0')
 			continue;
 		if (traitrement1(command, line))
@@ -45,7 +45,7 @@ int main(int ac, char **av, char *envp[])
 			execute(pathcommand, command);
 	}
 	if (linesize < 0 && flags.interactive)
-	write(STDERR_FILENO, "\n", 1);
+		write(STDERR_FILENO, "\n", 1);
 	free(line);
 	return (0);
 }

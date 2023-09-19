@@ -16,7 +16,5 @@ int traitrement1(char **ma_commande, char *tampon)
 		execute(ma_commande[0], ma_commande);
 		return (1);
 	}
-	
 	return (0);
 }
-

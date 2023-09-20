@@ -59,18 +59,6 @@ int final_exit;
 int ln_count;
 } info;
 
-/**
- * struct linkedlist - singly linked list
- * @number: field number
- * @str: string
- * @next: next node
- */
-typedef struct linkedlist
-{
-	int number;
-	char *str;
-	struct linkedlist *next;
-} my_list;
 
 /**
  * struct informations - list
@@ -89,9 +77,6 @@ typedef struct linkedlist
  * @status: integer
  * @fname: string
  * @cmd_buf_type: integer
- * @env: environment
- * @histoire: historique
- * @alias: alias
  */
 typedef struct informations
 {
@@ -110,9 +95,6 @@ int readfd;
 int status;
 char *fname;
 int cmd_buf_type;
-my_list *env;
-my_list *histoire;
-my_list *alias
 } my_info;
 
 /* environment variables */
@@ -137,14 +119,6 @@ int traitrement(char **ma_commande, char *entree);
 void sortie(char **ma_commande, char *entree);
 ssize_t my_input(my_info *info, char **entree, size_t *longueur);
 void afficher_environ(void);
-int my_unsetenv(my_info *info, char *var);
-int my_setenv(my_info *info, char *var, char *value);
-int myexit(my_info *info);
-int eratoi(char *s);
-void print_err(my_info *info, char estr);
-void eeputs(char *str);
-int _eeputchar(char c);
-int printd(int input, int df);
 
 /* string functions */
 int strcomp(char *s1, char *s2);
@@ -154,7 +128,6 @@ char *str_duplicate(char *s);
 char *str_locate(char *s, char c);
 void execute(char *ma_commande, char **entree);
 char *chemin_found(void);
-char *commencer(const char *, const char *);
 /* free memory */
 void liberer(char **tampon);
 

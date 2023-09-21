@@ -25,7 +25,7 @@ void get_absolute_path(char **cmd)
 
 		for (i = 0; path_split[i]; i++)
 		{
-			bin = (char *)calloc(sizeof(char), (strlen(path_split[i]) + 1 + strlen(cmd[0]) + 1));
+			bin = (char *)calloc(sizeof(char), (strlen(path_split[i]) + strlen(cmd[0])));
 			if (bin == NULL)
 				break;
 

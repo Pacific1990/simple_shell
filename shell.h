@@ -12,7 +12,7 @@
 #include <time.h>
 #include <stdbool.h>
 
-void get_absolute_path(char **cmd);
+char *get_absolute_path(char *cmd);
 void free_array(char **array);
 int command(void);
 char **split(char *raw_cmd, char *limit);

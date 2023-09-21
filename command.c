@@ -28,7 +28,7 @@ int command(void)
 			printf("Command not found\n");
 		else if (is_built_in(cmd[0]) == false)
 		{
-			get_absolute_path(cmd);
+			get_absolute_path(cmd[0]);
 			exec_cmd(cmd);
 		}
 		else

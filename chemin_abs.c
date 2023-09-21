@@ -7,46 +7,43 @@
  * Return: void
  */
 
-void get_absolute_path(char **cmd)
+char *get_absolute_path(char *cmd)
 {
-	char *path = strdup(getenv("PATH"));
-	char *bin = NULL;
-	char **path_split = NULL;
-	int i;
+char *path, *path_2, *token, *file;
+int cmd_length, directory_length;
+struct stat buffer;
+path = getenv("PATH");
 
-	if (path == NULL)
-		path = strdup("/bin:/usr/local/bin:/usr/bin:/bin:/usr/local/sbin");
-
-	if (cmd[0][0] != '/' && strncmp(cmd[0], "./", 2) != 0)
-	{
-		path_split = split(path, ":");
-		free(path);
-		path = NULL;
-
-		for (i = 0; path_split[i]; i++)
-		{
-			bin = (char *)calloc(sizeof(char), (strlen(path_split[i]) + strlen(cmd[0])));
-			if (bin == NULL)
-				break;
-
-			strcat(bin, path_split[i]);
-			strcat(bin, "/");
-			strcat(bin, cmd[0]);
-
-			if (access(bin, F_OK) == 0)
-				break;
-
-			free(bin);
-			bin = NULL;
-		}
-		free_array(path_split);
-		free(cmd[0]);
-		cmd[0] = bin;
-	}
-	else
-	{
-		free(path);
-		path = NULL;
-	}
+if (path)
+{
+path_2 = strdup(path);
+cmd_length = strlen(cmd);
+token = strtok(path_2, ":");
+while (token != NULL)
+{
+directory_length = strlen(token);
+file = malloc(cmd_length + directory_length + 2);
+strcpy(file, token);
+strcat(file, "/");
+strcat(file, cmd);
+strcat(file, "\0");
+if (stat(file, &buffer) == 0)
+{
+free(path_2);
+return (file);
 }
-
+else
+{
+free(file);
+token = strtok(NULL, ":");
+}
+}
+free(path_2);
+if (stat(cmd, &buffer) == 0)
+{
+return (cmd);
+}
+return (NULL);
+}
+return (NULL);
+}
